@@ -1,0 +1,10 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://testuser:testpass@localhost:5435/testdb"
+}
+
+
+model challenge {
+  challenge_id       String    @id @default(dbgenerated("public.uuid_generate_v4()")) @db.Uuid
+  @@index([challenge_id])
+}
